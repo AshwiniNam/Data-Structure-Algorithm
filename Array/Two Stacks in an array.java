@@ -11,15 +11,15 @@ public class Main {
     public TwoStack(int cap) {
       data = new int[cap];
       tos1 = -1;
-      tos2 = cap;
+      tos2 = data.length;
     }
 
     int size1() {
-      return tos1;
+      return tos1+1;
     }
 
     int size2() {
-      return tos2-tos1;
+      return data.length-tos2;
     }
 
     void push1(int val) {

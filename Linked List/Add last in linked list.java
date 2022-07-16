@@ -24,8 +24,8 @@ public class Main {
         tail = n1;
       }
       else{
-        tail.next = n1;
-        tail = n1;
+        tail.next = n1; // link
+        tail = n1;      // move tail
       }
       size++;
     }

@@ -188,8 +188,6 @@ public class Main {
         curr.next = prev;
         prev=curr;
         curr = next;  
-        if(next!=null) 
-          next = next.next;
       }
       tail = head;
       head = prev;

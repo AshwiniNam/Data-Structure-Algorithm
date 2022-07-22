@@ -242,7 +242,7 @@ public class Main {
                 h2=h2.next;
             }
         }
-        //one one gets null, check seperately to avoid null pointer exception
+        //when one gets null, check seperately to avoid null pointer exception
         while(h1!=null)
         {
             l.addLast(h1.data);

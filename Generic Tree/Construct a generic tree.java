@@ -1,3 +1,4 @@
+import java.util.*;
 //Dummy code - Contruct a generic tree (with class and construct function)
 //create a Node class
 public class Node{
@@ -29,6 +30,15 @@ public static Node construct(int[] arr){
             st.push(t);
         }
     }
+    return root;
 }
-
-//here input arr whould be [1,2,5,-1,6,-1,-1,3,7,-1,-1,-1]
+public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    int size = scn.nextInt();
+    int[] arr = new int[size];
+    for(int i=0;i<size;i++)
+    {
+        arr[i] = scn.nextInt();
+    }
+    construct(arr);
+}

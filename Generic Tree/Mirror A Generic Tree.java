@@ -1,3 +1,5 @@
+//Both approaches work - pre order and post order
+
 import java.io.*;
 import java.util.*;
 
@@ -124,11 +126,10 @@ public class Main {
     }
 
     public static void mirror(Node node) {
-        if (node.children.size() == 0) {
-            return;
-        }
-        for (Node child : node.children)
-            mirror(child);
+        // if(node.children.size()==0)
+        // {
+        // return;
+        // }
         int i = 0;
         int j = node.children.size() - 1;
         while (i < j) {
@@ -139,6 +140,8 @@ public class Main {
             i++;
             j--;
         }
+        for (Node child : node.children)
+            mirror(child);
 
     }
 

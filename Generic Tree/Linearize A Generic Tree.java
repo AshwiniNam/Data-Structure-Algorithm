@@ -1,7 +1,4 @@
-//My Logic
-//Recursion to do dfs
-//Add it to a stack
-//then assign pop value as peek's first child
+//Using just recurssion (no extra stack)
 
 import java.io.*;
 import java.util.*;
@@ -148,23 +145,22 @@ public class Main {
         }
     }
 
-    public static Stack<Node> st = new Stack<>();
-
-    public static void linearizehelp(Node node) {
-        st.push(node);
-        for (Node child : node.children) {
-            linearizehelp(child);
+    public static Node getTail(Node node) {
+        while (node.children.size() == 1) {
+            node = node.children.get(0);
         }
+        return node;
     }
 
     public static void linearize(Node node) {
-        linearizehelp(node);
-        while (st.size() > 1) {
-            Node n = st.pop();
-            for (int i = st.peek().children.size() - 1; i >= 0; i--) {
-                st.peek().children.remove(i);
-            }
-            st.peek().children.add(n);
+        for (Node child : node.children) {
+            linearize(child);
+        }
+        while (node.children.size() > 1) {
+            Node lchild = node.children.remove(node.children.size() - 1);
+            Node slchild = node.children.get(node.children.size() - 1);
+            Node tail = getTail(slchild);
+            tail.children.add(lchild);
         }
     }
 

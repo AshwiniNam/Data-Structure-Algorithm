@@ -7,14 +7,14 @@ public class Main {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
         HashMap<Integer, Boolean> map = new HashMap<>();
-        ArrayList<Integer> arr = new ArrayList<>();
+        //ArrayList<Integer> arr = new ArrayList<>();
 
         // step 1
         for (int i = 0; i < n; i++) {
             int num = scn.nextInt();
             if (map.containsKey(num) == false) {
                 map.put(num, true);
-                arr.add(num);
+                //arr.add(num);
             }
         }
 

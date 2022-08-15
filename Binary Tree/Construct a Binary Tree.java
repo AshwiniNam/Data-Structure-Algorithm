@@ -3,23 +3,22 @@ public class Node {
     int data;
     Node left;
     Node right;
-}
 
     public Node(int data, Node left, Node right) {
         this.data = data;
         this.left = left;
         this.right = right;
     }
-
-    public class Pair {
-        Node node;
-        int state;
-    }
-
-public Pair(Node node,int state){
-    this.node = node;
-    this.state = state;
 }
+
+public class Pair {
+    Node node;
+    int state;
+
+    public Pair(Node node, int state) {
+        this.node = node;
+        this.state = state;
+    }}
 
     Stack<Pair> st = new Stack();
     Node root = new Node(arr[0], null, null);

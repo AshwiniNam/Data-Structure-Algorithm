@@ -1,4 +1,4 @@
-//using iterative level order traversal
+//using recurssion
 
 import java.io.*;
 import java.util.*;
@@ -82,30 +82,14 @@ public class Main {
     }
 
     public static void printKLevelsDown(Node node, int k) {
-        Queue<Node> que = new ArrayDeque<>();
-        que.add(node);
-        int level = 0;
-        while (que.size() > 0) {
-            int size = que.size();
-            level++;
-            while (size-- > 0) {
-                Node rem = que.remove();
-
-                if (rem.left != null) {
-                    if (level == k)
-                        System.out.println(rem.left.data);
-                    else
-                        que.add(rem.left);
-                }
-                if (rem.right != null) {
-                    if (level == k)
-                        System.out.println(rem.right.data);
-                    else
-                        que.add(rem.right);
-                }
-
-            }
+        if (node == null)
+            return;
+        if (k == 0) {
+            System.out.println(node.data);
+            return;
         }
+        printKLevelsDown(node.left, k - 1);
+        printKLevelsDown(node.right, k - 1);
     }
 
     public static void main(String[] args) throws Exception {

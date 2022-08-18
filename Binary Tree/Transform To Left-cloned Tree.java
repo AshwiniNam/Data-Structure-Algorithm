@@ -80,18 +80,15 @@ public class Main {
     }
 
     public static Node createLeftCloneTree(Node node) {
-        if (node.left == null && node.right == null) {
-            Node last = new Node(node.data, null, null);
-            node.left = last;
-            return node;
+        if (node == null) {
+            return null;
         }
+        Node left = createLeftCloneTree(node.left);
+        Node right = createLeftCloneTree(node.right);
 
         Node duplicate = new Node(node.data, node.left, null);
         node.left = duplicate;
-        if (node.left.left != null)
-            createLeftCloneTree(node.left.left);
-        if (node.right != null)
-            createLeftCloneTree(node.right);
+        node.right = right;
         return node;
     }
 

@@ -82,12 +82,13 @@ public class Main {
     public static void printSingleChildNodes(Node node, Node parent) {
         if (node == null)
             return;
+
+        if (parent != null && parent.left == null && parent.right == node)
+            System.out.println(node.data);
+        else if (parent != null && parent.right == null && parent.left == node)
+            System.out.println(node.data);
         printSingleChildNodes(node.left, node);
         printSingleChildNodes(node.right, node);
-        if (node.left != null && node.right == null)
-            System.out.println(node.left.data);
-        if (node.right != null && node.left == null)
-            System.out.println(node.right.data);
 
     }
 

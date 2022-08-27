@@ -91,22 +91,17 @@ public class Main {
         return th;
     }
 
-    public static int secmax = Integer.MIN_VALUE;
+    public static int dia = 0;
 
     public static int diameter1(Node node) {
         if (node == null)
             return -1;
         int leftmax = diameter1(node.left);
         int rightmax = diameter1(node.right);
-        int max = Math.max(leftmax, rightmax);
-        if (leftmax >= rightmax) {
-            if (rightmax > secmax)
-                secmax = rightmax;
-        } else if (leftmax < rightmax) {
-            if (leftmax > secmax)
-                secmax = leftmax;
-        }
-        return max + 1;
+        int h = Math.max(leftmax, rightmax);
+        dia = Math.max(dia, leftmax + rightmax + 2);
+
+        return h + 1;
     }
 
     public static void main(String[] args) throws Exception {
@@ -126,7 +121,7 @@ public class Main {
 
         int diameter = 0;
         diameter = diameter1(root);
-        System.out.println(diameter + secmax + 1);
+        System.out.println(dia);
     }
 
 }
